@@ -1,9 +1,17 @@
 <?php
-    if(isset($_GET['submit'])){
+
+    /* if(isset($_GET['submit'])){
         echo $_GET['email'];
         echo $_GET['title'];
         echo $_GET['details'];
+    } */
+
+    if(isset($_POST['submit'])){
+        echo $_POST['email'];
+        echo $_POST['title'];
+        echo $_POST['details'];
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +21,7 @@
 
     <section class="container grey-text">
         <h4 class="center">Add project</h4>
-        <form method="GET" action="add.php" class="white">
+        <form method="POST" action="add.php" class="white">
             <label>Your email:</label>
             <input type="text" name="email">
             <label>Project title:</label>
