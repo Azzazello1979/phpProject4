@@ -26,8 +26,9 @@
         if(empty($_POST['details'])){
             echo 'details is required <br />' ;
         } else {
+            $details = $_POST['details'];
             if(!preg_match( '/^([a-zA-Z\s]+)(,\s*[a-zA-Z\s]*)*$/', $details )){
-                echo 'details must be letters and spaces only';
+                echo 'details must be comma separated list';
             }
         }
     }
@@ -46,7 +47,7 @@
             <input type="text" name="email">
             <label>Project title:</label>
             <input type="text" name="title">
-            <label>Project details:</label>
+            <label>Project details (comma separated list):</label>
             <input type="text" name="details">
             <div class="center">
                 <input type="submit" name="submit" value="submit" class="btn brand z-depth-0" />
