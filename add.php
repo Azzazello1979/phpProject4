@@ -1,5 +1,9 @@
 <?php
-
+    if(isset($_GET['submit'])){
+        echo $_GET['email'];
+        echo $_GET['title'];
+        echo $_GET['details'];
+    }
 ?>
 
 <!DOCTYPE html>
