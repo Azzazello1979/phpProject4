@@ -7,9 +7,30 @@
     } */
 
     if(isset($_POST['submit'])){
-        echo $_POST['email'];
-        echo $_POST['title'];
-        echo $_POST['details'];
+        /* echo htmlspecialchars($_POST['email']);
+        echo htmlspecialchars($_POST['title']);
+        echo htmlspecialchars($_POST['details']); */
+
+        // check email
+        if(empty($_POST['email'])){
+            echo 'email is required <br />' ;
+        } else {
+            echo htmlspecialchars($_POST['email']);
+        }
+
+        // check title
+        if(empty($_POST['title'])){
+            echo 'title is required <br />' ;
+        } else {
+            echo htmlspecialchars($_POST['title']);
+        }
+
+        // check details
+        if(empty($_POST['details'])){
+            echo 'details is required <br />' ;
+        } else {
+            echo htmlspecialchars($_POST['details']);
+        }
     }
 
 ?>
