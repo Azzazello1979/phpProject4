@@ -1,35 +1,34 @@
 <?php
 
-    /* if(isset($_GET['submit'])){
-        echo $_GET['email'];
-        echo $_GET['title'];
-        echo $_GET['details'];
-    } */
-
     if(isset($_POST['submit'])){
-        /* echo htmlspecialchars($_POST['email']);
-        echo htmlspecialchars($_POST['title']);
-        echo htmlspecialchars($_POST['details']); */
 
         // check email
         if(empty($_POST['email'])){
             echo 'email is required <br />' ;
         } else {
-            echo htmlspecialchars($_POST['email']);
+            $email = $_POST['email'];
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                echo 'email must be valid';
+            }
         }
 
         // check title
         if(empty($_POST['title'])){
             echo 'title is required <br />' ;
         } else {
-            echo htmlspecialchars($_POST['title']);
+            $title = $_POST['title'];
+            if(!preg_match( '/^[a-zA-Z\s]+$/', $title )){
+                echo 'title must be letters and spaces only';
+            }
         }
 
         // check details
         if(empty($_POST['details'])){
             echo 'details is required <br />' ;
         } else {
-            echo htmlspecialchars($_POST['details']);
+            if(!preg_match( '/^([a-zA-Z\s]+)(,\s*[a-zA-Z\s]*)*$/', $details )){
+                echo 'details must be letters and spaces only';
+            }
         }
     }
 
