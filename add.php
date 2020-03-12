@@ -1,10 +1,12 @@
 <?php
-    $title = $email = $ingredients = '';
+    $title = $email = $details = '';
     $errors = [
         'email'=>'',
         'title'=>'',
         'details'=>''
     ];
+        
+    
 
     if(isset($_POST['submit'])){
 
@@ -50,13 +52,13 @@
         <h4 class="center">Add project</h4>
         <form method="POST" action="add.php" class="white">
             <label>Your email:</label>
-            <input type="text" name="email" value="<?php echo $_POST['email']; ?>">
+            <input type="text" name="email" value="<?php echo $email; ?>">
                 <div class="red-text"><?php echo $errors['email']; ?></div>
             <label>Project title:</label>
-            <input type="text" name="title" value="<?php echo $_POST['title']; ?>">
+            <input type="text" name="title" value="<?php echo $title; ?>">
                 <div class="red-text"><?php echo $errors['title']; ?></div>
             <label>Project details (comma separated list):</label>
-            <input type="text" name="details" value="<?php echo $_POST['details']; ?>">
+            <input type="text" name="details" value="<?php echo $details; ?>">
                 <div class="red-text"><?php echo $errors['details']; ?></div>
             <div class="center">
                 <input type="submit" name="submit" value="submit" class="btn brand z-depth-0" />
