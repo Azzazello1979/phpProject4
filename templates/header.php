@@ -19,10 +19,13 @@
             padding: 20px;
         }
         .my-card{
-            min-height: 50vh;
+            
+        }
+        .my-card-content{
+           
         }
         .my-card-footer{
-            padding: 20px;
+            
         }
     </style>
     <title>PHP Project 4</title>

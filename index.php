@@ -1,11 +1,5 @@
 <?php
-    // connect to DB using mysqli
-    $connection = mysqli_connect('localhost', 'project4', '1234', 'project4');
-
-    // check connection
-    if(!$connection){
-        echo 'connection error' . mysqli_connect_error();
-    }
+    include 'connection.php';
 
     // step 1 of 3 - write query
     $sql = 'SELECT title, details, id FROM projects ORDER BY created_at';
@@ -37,12 +31,12 @@
             <?php foreach($projects as $project){ ?>
 
                 <div class="col s6 m4 l3">
-                    <div class="card z-depth-0 my-card">
+                    <div class="card z-depth-0">
                         <div class="card-content center">
                             <h5><?php echo htmlspecialchars($project['title']); ?></h5>
                             <div><?php echo htmlspecialchars($project['details']); ?></div>
                         </div>
-                        <div class="card-action right-align my-card-footer">
+                        <div class="card-action right-align">
                             <a href="#" class="brand-text">more info</a>
                         </div>
                     </div>

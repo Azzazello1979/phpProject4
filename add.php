@@ -1,12 +1,12 @@
 <?php
+    include 'connection.php';
+
     $title = $email = $details = '';
     $errors = [
         'email'=>'',
         'title'=>'',
         'details'=>''
     ];
-        
-    
 
     if(isset($_POST['submit'])){
 
@@ -44,10 +44,25 @@
             //echo 'there are error(s) in the form';
         } else {
             //echo 'form is valid';
-            header('Location: index.php');
+            $email = mysqli_real_escape_string($connection, $_POST['email']);
+            $title = mysqli_real_escape_string($connection, $_POST['title']);
+            $details = mysqli_real_escape_string($connection, $_POST['details']);
+
+            $postQuery = "INSERT INTO projects(title, details, email) VALUES ('$title', '$details', '$email')";
+            if(mysqli_query($connection, $postQuery)){
+                header('Location: index.php');
+            } else {
+                echo 'postQuery error ' . mysqli_error($connection);
+            }
+
+            
         }
 
+
+
     }
+
+
 
 ?>
 
