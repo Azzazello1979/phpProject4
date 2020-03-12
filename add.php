@@ -39,6 +39,14 @@
                 $errors['details'] = 'details must be comma separated list';
             }
         }
+
+        if(array_filter($errors)){
+            //echo 'there are error(s) in the form';
+        } else {
+            //echo 'form is valid';
+            header('Location: index.php');
+        }
+
     }
 
 ?>
