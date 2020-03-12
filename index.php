@@ -15,7 +15,14 @@
 
     // step 3 of 3 - unpack query & translate it to associative array
     $projects = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    print_r($projects);
+
+    // clear query result from memory
+    mysqli_free_result($result);
+
+    // close connection
+    mysqli_close($connection);
+
+    // print_r($projects);
 
 ?>
 
