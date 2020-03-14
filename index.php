@@ -28,7 +28,7 @@
     <h4 class="center grey-text">Projects</h4>
     <div class="container">
         <div class="row">
-            <?php foreach($projects as $project){ ?>
+            <?php foreach($projects as $project): ?>
 
                 <div class="col s6 m4 l3">
                     <div class="card z-depth-0">
@@ -42,7 +42,8 @@
                     </div>
                 </div>
 
-            <?php } ?>
+            <?php endforeach; ?>
+
         </div>
     </div>
 

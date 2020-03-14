@@ -1,0 +1,24 @@
+<?php if(count($projects) >= 2){ ?>
+<p>There are 2 or more projects.</p>
+<?php } else { ?>
+<p>There are less than 3 projects.</p>
+<?php }; ?>
+
+<?php if(count($projects) >= 2): ?>
+<p>There are 2 or more projects.</p>
+<?php else: ?>
+<p>There are less than 3 projects.</p>
+<?php endif; ?>
+
+-----------------------------------------------------
+
+<?php foreach($projects as $project){ ?>
+    <h1><?php $project['title']; ?></h1>
+    <h3><?php $project['content']; ?></h3>
+<php? }; ?>
+
+<?php foreach($projects as $project): ?>
+    <h1><?php $project['title']; ?></h1>
+    <h3><?php $project['content']; ?></h3>
+<php? endforeach; ?>
+
