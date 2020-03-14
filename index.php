@@ -1,5 +1,5 @@
 <?php
-    include 'connection.php';
+    include 'config/connection.php';
 
     // step 1 of 3 - write query
     $sql = 'SELECT title, details, id FROM projects ORDER BY created_at';

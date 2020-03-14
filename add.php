@@ -1,6 +1,8 @@
 <?php
-    include 'connection.php';
 
+    include 'config/connection.php';
+    include 'config/regex.php';
+    
     $title = $email = $details = '';
     $errors = [
         'email'=>'',
@@ -25,7 +27,7 @@
             $errors['title'] = 'title cannot be empty';
         } else {
             $title = $_POST['title'];
-            if(!preg_match( '/^[a-zA-Z\s]+$/', $title )){
+            if(!preg_match( REG1, $title )){
                 $errors['title'] = 'title must be letters and spaces only';
             }
         }
@@ -35,9 +37,6 @@
             $errors['details'] = 'details cannot be empty';
         } else {
             $details = $_POST['details'];
-            if(!preg_match( '/^([a-zA-Z\s]+)(,\s*[a-zA-Z\s]*)*$/', $details )){
-                $errors['details'] = 'details must be comma separated list';
-            }
         }
 
         if(array_filter($errors)){
@@ -80,7 +79,7 @@
             <label>Project title:</label>
             <input type="text" name="title" value="<?php echo $title; ?>">
                 <div class="red-text"><?php echo $errors['title']; ?></div>
-            <label>Project details (comma separated list):</label>
+            <label>Project details:</label>
             <input type="text" name="details" value="<?php echo $details; ?>">
                 <div class="red-text"><?php echo $errors['details']; ?></div>
             <div class="center">
