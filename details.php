@@ -1,5 +1,6 @@
 <?php
     include 'config/connection.php';
+    
 
     if(isset($_GET['id'])){
         $id = mysqli_real_escape_string($connection, $_GET['id']);
@@ -9,12 +10,29 @@
             echo 'query problem';
             exit;
         } else {
-            $result = mysqli_query($connection, $getQuery);
+            $selectResult = mysqli_query($connection, $getQuery);
         };
 
-        $project = mysqli_fetch_assoc($result);
-        mysqli_free_result($result);
+        $project = mysqli_fetch_assoc($selectResult);
+        mysqli_free_result($selectResult);
         mysqli_close($connection);
+    }
+
+    if(isset($_POST['delID'])){
+        $delID = mysqli_real_escape_string($connection, $_POST['delID']);
+        $delQuery = "DELETE FROM projects WHERE id = $delID";
+
+        if(mysqli_query($connection, $delQuery)){
+            //good
+            header('Location: index.php');
+        } else {
+            //error
+            echo 'query error: ' . mysqli_error($connection);
+        }
+
+        mysqli_close($connection);
+        
+
     }
 
 
@@ -32,6 +50,14 @@
             <h5><?php echo htmlspecialchars($project['email']); ?></h5>
             <h5><?php echo date($project['created_at']); ?></h5>
             <p><?php echo htmlspecialchars($project['details']); ?></p>
+            <a href="index.php" class="btn">go back</a>
+
+            <form method="POST" action="details.php">
+                <input type="hidden" name="delID" value="<?php echo $project['id']; ?>">
+                <input type="submit" value="delete" class="btn">
+            </form>
+            
+
         <?php else: ?>    
             <p class="red-text">No project here.</p>
         <?php endif; ?>
