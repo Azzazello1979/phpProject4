@@ -50,9 +50,10 @@
             <h5><?php echo htmlspecialchars($project['email']); ?></h5>
             <h5><?php echo date($project['created_at']); ?></h5>
             <p><?php echo htmlspecialchars($project['details']); ?></p>
-            <a href="index.php" class="btn">go back</a>
+            
 
             <form method="POST" action="details.php">
+                <a href="index.php"><input type="button" value="go back" class="btn"></a>
                 <input type="hidden" name="delID" value="<?php echo $project['id']; ?>">
                 <input type="submit" value="delete" class="btn">
             </form>
