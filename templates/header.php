@@ -18,15 +18,28 @@
             margin: 20px auto;
             padding: 20px;
         }
+        .book{
+            display:block;
+            position: relative;
+            top: -30px;
+            width: 100px;
+        }
         .my-card{
+            margin-top: 5vh;
+            padding-top: 0 !important;
+            display:flex !important;
+            flex-direction:column !important;
+            justify-content:flex-start !important;
+            
             
         }
         .my-card-content{
-           
+            display:block;
+            position: relative;
+            top: -30px;
+            padding: 10px !important;
         }
-        .my-card-footer{
-            
-        }
+
     </style>
     <title>PHP Project 4</title>
 </head>
