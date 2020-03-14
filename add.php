@@ -53,12 +53,7 @@
             } else {
                 echo 'postQuery error ' . mysqli_error($connection);
             }
-
-            
         }
-
-
-
     }
 
 
@@ -74,13 +69,13 @@
         <h4 class="center">Add project</h4>
         <form method="POST" action="add.php" class="white">
             <label>Your email:</label>
-            <input type="text" name="email" value="<?php echo $email; ?>">
+            <input type="text" name="email" value="<?php echo htmlspecialchars($email); ?>">
                 <div class="red-text"><?php echo $errors['email']; ?></div>
             <label>Project title:</label>
-            <input type="text" name="title" value="<?php echo $title; ?>">
+            <input type="text" name="title" value="<?php echo htmlspecialchars($title); ?>">
                 <div class="red-text"><?php echo $errors['title']; ?></div>
             <label>Project details:</label>
-            <input type="text" name="details" value="<?php echo $details; ?>">
+            <input type="text" name="details" value="<?php echo htmlspecialchars($details); ?>">
                 <div class="red-text"><?php echo $errors['details']; ?></div>
             <div class="center">
                 <input type="submit" name="submit" value="submit" class="btn brand z-depth-0" />
