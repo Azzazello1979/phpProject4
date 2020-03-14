@@ -1,19 +1,19 @@
 <?php
     include 'config/connection.php';
 
-    // step 1 of 3 - write query
+    // step 1 of 5 - write query
     $sql = 'SELECT title, details, id FROM projects ORDER BY created_at';
 
-    // step 2 of 3 - make the query
+    // step 2 of 5 - make the query
     $result = mysqli_query($connection, $sql);
 
-    // step 3 of 3 - unpack query & translate it to associative array
+    // step 3 of 5 - unpack query & translate it to associative array
     $projects = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-    // clear query result from memory
+    // step 4 of 5 clear query result from memory
     mysqli_free_result($result);
 
-    // close connection
+    // step 5 of 5 close connection
     mysqli_close($connection);
 
     // print_r($projects);
@@ -37,7 +37,7 @@
                             <div><?php echo htmlspecialchars($project['details']); ?></div>
                         </div>
                         <div class="card-action right-align">
-                            <a href="#" class="brand-text">more info</a>
+                            <a href="details.php?id=<?php echo $project['id']; ?>" class="brand-text">more info</a>
                         </div>
                     </div>
                 </div>
