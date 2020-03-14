@@ -32,8 +32,8 @@
 
                 <div class="col s6 m4 l3">
                     <div class="card z-depth-0 my-card">
-                    <a href="details.php?id=<?php echo $project['id']; ?>"><img src="img/book.svg" class="book z-depth-1"></a>
-                        <div class="card-content my-card-content">
+                    <a href="details.php?id=<?php echo $project['id']; ?>"><img src="img/book.png" class="book"></a>
+                        <div class="card-content center my-card-content">
                             <h5><?php echo htmlspecialchars($project['title']); ?></h5>
                             <div><?php echo htmlspecialchars($project['details']); ?></div>
                         </div>
